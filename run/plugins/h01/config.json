@@ -1,0 +1,19 @@
+{
+    "webHost": "localhost",
+    "webPort": 1798,
+    "backendApi": "test-api-key",
+    "isDevelopment": true,
+    "websiteUrl": "http://localhost:4000",
+    "redis": {
+        "host": "localhost",
+        "port": 6379,
+        "password": null
+    },
+    "mongo": {
+        "host": "localhost",
+        "port": 27017,
+        "database": "h01",
+        "username": null,
+        "password": null
+    }
+}

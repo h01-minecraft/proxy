@@ -1,0 +1,1 @@
+{"id":"h01","name":"h01","version":"1.0-SNAPSHOT","description":"UserEncrypt minecraft velocity plugin to prevent from username stealing in offline mode servers.","url":"https://harihar.site/projects/userencrypt","authors":["Harihar Nautiyal"],"dependencies":[],"main":"com.hariharnautiyal.velocity.h01.Main"}
