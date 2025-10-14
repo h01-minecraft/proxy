@@ -1,6 +1,8 @@
 package com.hariharnautiyal.velocity.h01.commands
 
 import com.hariharnautiyal.velocity.h01.gui.WalletGUI
+import com.hariharnautiyal.velocity.h01.managers.*
+import com.hariharnautiyal.velocity.h01.models.*
 import com.velocitypowered.api.command.SimpleCommand
 import com.velocitypowered.api.proxy.Player
 import com.velocitypowered.api.proxy.ProxyServer
@@ -9,15 +11,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
 import org.geysermc.floodgate.api.FloodgateApi
-import com.hariharnautiyal.velocity.h01.models.*
-import com.hariharnautiyal.velocity.h01.managers.*
 
 class PayCommand(
-    private val economyManager: EconomyManager,
-    private val server: ProxyServer,
-    private val floodgateApi: FloodgateApi,
-    private val walletGUI: WalletGUI
+        private val economyManager: EconomyManager,
+        private val server: ProxyServer,
+        private val floodgateApi: FloodgateApi,
+        private val walletGUI: WalletGUI
 ) : SimpleCommand {
     private val scope = CoroutineScope(Dispatchers.IO)
 
@@ -26,13 +27,14 @@ class PayCommand(
         val args = invocation.arguments()
 
         if (source !is Player) {
-            source.sendMessage(Component.text("Only players can use this command", NamedTextColor.RED))
+            source.sendMessage(
+                    Component.text("Only players can use this command", NamedTextColor.RED)
+            )
             return
         }
 
         handleCommand(source, args)
     }
-
 
     private fun handleCommand(player: Player, args: Array<String>) {
         scope.launch {
@@ -54,43 +56,76 @@ class PayCommand(
                 return@launch
             }
             val amount = args[1].toLongOrNull() ?: 0
-            val result = economyManager.transferBalance(player.uniqueId, targetPlayer.uniqueId, amount)
-            val message = when (result) {
+            val result =
+                    economyManager.transferBalance(player.uniqueId, targetPlayer.uniqueId, amount)
+
+            when (result) {
                 TransferBalanceResponse.SUCCESS -> {
-                    Component.text("Payment successful", NamedTextColor.GREEN)
+                    player.sendMessage(Component.text("Payment successful", NamedTextColor.GREEN))
+                    val targetOnline = server.getPlayer(targetPlayer.uniqueId).orElse(null)
+                    if (targetOnline != null) {
+                        if (floodgateApi.isFloodgatePlayer(targetPlayer.uniqueId)) {
+                            walletGUI.transferReceivedGUI(targetOnline, player, amount)
+                        } else {
+                            targetOnline.sendMessage(
+                                    Component.text(
+                                            "${player.username} transferred $amount hash coins to you",
+                                            NamedTextColor.YELLOW
+                                    )
+                            )
+                        }
+                    }
                 }
                 TransferBalanceResponse.NOT_ENOUGH_FUNDS -> {
-                    Component.text("Not enough balance", NamedTextColor.YELLOW)
+                    player.sendMessage(Component.text("Not enough balance", NamedTextColor.YELLOW))
                 }
                 TransferBalanceResponse.ERROR -> {
-                    Component.text("Failed to pay", NamedTextColor.RED)
+                    player.sendMessage(Component.text("Failed to pay", NamedTextColor.RED))
                 }
                 TransferBalanceResponse.PLAYER_NOT_FOUND -> {
-                    Component.text("Player not found in database", NamedTextColor.RED)
+                    player.sendMessage(
+                            Component.text("Player not found in database", NamedTextColor.RED)
+                    )
+                }
+                TransferBalanceResponse.INVALID_AMOUNT -> {
+                    player.sendMessage(
+                            Component.text(
+                                    "You cannot send 0 or a negative amount.",
+                                    NamedTextColor.RED
+                            )
+                    )
+                }
+                TransferBalanceResponse.CANNOT_PAY_SELF -> {
+                    player.sendMessage(
+                            Component.text("You cannot send money to yourself.", NamedTextColor.RED)
+                    )
                 }
             }
-
-            if (result === TransferBalanceResponse.SUCCESS) {
-                targetPlayer.sendMessage(Component.text("${player.username} transferred $amount hash coins to you", NamedTextColor.YELLOW))
-            }
-
-            player.sendMessage(message)
         }
     }
 
     private fun sendUsage(player: Player) {
-        player.sendMessage(Component.text("§8§m--- Pay Command Help §8§m---", NamedTextColor.DARK_GRAY))
+        player.sendMessage(
+                Component.text(
+                        "--- Pay Command Help ---",
+                        NamedTextColor.DARK_GRAY,
+                        TextDecoration.STRIKETHROUGH
+                )
+        )
         player.sendMessage(Component.text("/pay <player> <amount>", NamedTextColor.YELLOW))
     }
 
     override fun suggest(invocation: SimpleCommand.Invocation): List<String> {
         val args = invocation.arguments()
-
-        return server.allPlayers.map { it.username }
-            .filter {
-                it.startsWith(args[1], ignoreCase = true) && it.lowercase() != invocation.source()
-                    .let { src -> if (src is Player) src.username.lowercase() else "" }
+        if (args.size == 0) {
+            return server.allPlayers.map { it.username }
+        }
+        if (args.size == 1) {
+            return server.allPlayers.map { it.username }.filter {
+                it.startsWith(args[0], ignoreCase = true)
             }
+        }
+        return emptyList()
     }
 
     override fun hasPermission(invocation: SimpleCommand.Invocation): Boolean {
@@ -99,10 +134,10 @@ class PayCommand(
 }
 
 class BalanceCommand(
-    private val economyManager: EconomyManager,
-    private val server: ProxyServer,
-    private val floodgateApi: FloodgateApi,
-    private val walletGUI: WalletGUI
+        private val economyManager: EconomyManager,
+        private val server: ProxyServer,
+        private val floodgateApi: FloodgateApi,
+        private val walletGUI: WalletGUI
 ) : SimpleCommand {
     private val scope = CoroutineScope(Dispatchers.IO)
 
@@ -111,13 +146,14 @@ class BalanceCommand(
         val args = invocation.arguments()
 
         if (source !is Player) {
-            source.sendMessage(Component.text("Only players can use this command", NamedTextColor.RED))
+            source.sendMessage(
+                    Component.text("Only players can use this command", NamedTextColor.RED)
+            )
             return
         }
 
         handleCommand(source)
     }
-
 
     private fun handleCommand(player: Player) {
         scope.launch {
@@ -134,30 +170,35 @@ class BalanceCommand(
             } else {
                 when (result) {
                     is GetBalanceResponse.Success ->
-                        player.sendMessage(Component.text(
-                            "${result.balance} Hash Coins",
-                            NamedTextColor.YELLOW)
-                        )
-                    is GetBalanceResponse.PlayerNotFound -> player.sendMessage(
-                        Component.text(
-                            "Player not found",
-                            NamedTextColor.RED
-                        )
-                    )
-                    is GetBalanceResponse.Error -> player.sendMessage(
-                        Component.text(
-                            "Failed to view wallet",
-                            NamedTextColor.RED
-                        )
-                    )
+                            player.sendMessage(
+                                    Component.text(
+                                            "${result.balance} Hash Coins",
+                                            NamedTextColor.YELLOW
+                                    )
+                            )
+                    is GetBalanceResponse.PlayerNotFound ->
+                            player.sendMessage(
+                                    Component.text("Player not found", NamedTextColor.RED)
+                            )
+                    is GetBalanceResponse.Error ->
+                            player.sendMessage(
+                                    Component.text("Failed to view wallet", NamedTextColor.RED)
+                            )
                 }
             }
         }
     }
 
     private fun sendUsage(player: Player) {
-        player.sendMessage(Component.text("§8§m--- Balance Command Help §8§m---", NamedTextColor.DARK_GRAY))
+        player.sendMessage(
+                Component.text(
+                        "--- Balance Command Help ---",
+                        NamedTextColor.DARK_GRAY,
+                        TextDecoration.STRIKETHROUGH
+                )
+        )
         player.sendMessage(Component.text("/bal", NamedTextColor.YELLOW))
+        player.sendMessage(Component.text("/pay", NamedTextColor.YELLOW))
     }
 
     override fun hasPermission(invocation: SimpleCommand.Invocation): Boolean {

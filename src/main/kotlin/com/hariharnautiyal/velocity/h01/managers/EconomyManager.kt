@@ -28,21 +28,39 @@ class EconomyManager(
         }
     }
 
-    suspend fun transferBalance(senderUUID: UUID, receiverUUID: UUID, transferAmount: Long): TransferBalanceResponse {
-        try {
-            val senderProfile = playerManager.getPlayerProfile(senderUUID);
-            val receiverProfile = playerManager.getPlayerProfile(receiverUUID);
-            if (senderProfile == null || receiverProfile == null) return TransferBalanceResponse.PLAYER_NOT_FOUND
-            val senderBalance = senderProfile.coins;
-            if (senderBalance < transferAmount) {
-                return TransferBalanceResponse.NOT_ENOUGH_FUNDS;
-            }
-            addBalance(senderUUID, -transferAmount)
-            addBalance(receiverUUID, transferAmount)
-            return TransferBalanceResponse.SUCCESS;
-        } catch (e: Exception) {
-            e.printStackTrace()
-            return TransferBalanceResponse.ERROR;
+    suspend fun transferBalance(from: UUID, to: UUID, amount: Long): TransferBalanceResponse {
+        if (from == to) {
+            return TransferBalanceResponse.CANNOT_PAY_SELF
+        }
+
+        if (amount < 1) {
+            return TransferBalanceResponse.INVALID_AMOUNT
+        }
+
+        val fromPlayer = playerManager.getPlayerProfile(from)
+        val toPlayer = playerManager.getPlayerProfile(to)
+
+        if (fromPlayer == null || toPlayer == null) {
+            return TransferBalanceResponse.PLAYER_NOT_FOUND
+        }
+
+        if (fromPlayer.coins < amount) {
+            return TransferBalanceResponse.NOT_ENOUGH_FUNDS
+        }
+
+        val fromUpdateResult = mongodbManager.playersCollection.updateOne(
+            eq(PlayerProfile::_id.name, from.toString()),
+            inc(PlayerProfile::coins.name, -amount)
+        )
+        val toUpdateResult = mongodbManager.playersCollection.updateOne(
+            eq(PlayerProfile::_id.name, to.toString()),
+            inc(PlayerProfile::coins.name, amount)
+        )
+
+        return if (fromUpdateResult.wasAcknowledged() && toUpdateResult.wasAcknowledged()) {
+            TransferBalanceResponse.SUCCESS
+        } else {
+            TransferBalanceResponse.ERROR
         }
     }
 

@@ -209,7 +209,7 @@ sealed class GetBalanceResponse {
 }
 
 enum class TransferBalanceResponse {
-    SUCCESS, PLAYER_NOT_FOUND, NOT_ENOUGH_FUNDS, ERROR
+    SUCCESS, PLAYER_NOT_FOUND, NOT_ENOUGH_FUNDS, ERROR, INVALID_AMOUNT, CANNOT_PAY_SELF
 }
 
 enum class BuyPrefixResponse {

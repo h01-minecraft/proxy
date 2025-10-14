@@ -1,354 +1,50 @@
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0-SNAPSHOT (git-1532fb36-b533)...
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux x86_64) compression, OpenSSL 3.x.x (Linux x86_64) ciphers
-[16:11:54] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: The proxy is running in offline mode! This is a security risk and you will NOT receive any support!
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
-[16:11:54] [main/INFO] [floodgate]: Took 117ms to boot Floodgate
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin floodgate 2.2.4-SNAPSHOT (b118-40d320a) by GeyserMC
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin geyser 2.8.3-b921 (git-master-175794e) by GeyserMC
-[16:11:54] [main/INFO] [h01]: Hello world
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin h01 1.0-SNAPSHOT by Harihar Nautiyal
-[16:11:54] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 4 plugins
-[16:11:54] [floodgate - Task Executor #0/WARN] [com.velocitypowered.proxy.network.ConnectionManager]: The server channel initializer has been replaced by java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[16:11:54] [floodgate - Task Executor #0/WARN] [com.velocitypowered.proxy.network.ConnectionManager]: The backend channel initializer has been replaced by java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-[16:11:55] [floodgate - Task Executor #0/INFO] [geyser]: Loading extensions...
-[16:11:55] [floodgate - Task Executor #0/INFO] [geyser]: Loaded 0 extension(s)
-[16:11:55] [floodgate - Task Executor #0/INFO] [h01]: Loading configuration...
-[16:11:55] [floodgate - Task Executor #0/ERROR] [h01]: Failed to load config.json: Serializer for class 'PluginConfig' is not found.
-Please ensure that class is marked as '@Serializable' and that the serialization compiler plugin is applied.
-
-kotlinx.serialization.SerializationException: Serializer for class 'PluginConfig' is not found.
-Please ensure that class is marked as '@Serializable' and that the serialization compiler plugin is applied.
-
-	at kotlinx.serialization.internal.Platform_commonKt.serializerNotRegistered(Platform.common.kt:90) ~[?:?]
-	at kotlinx.serialization.internal.PlatformKt.platformSpecificSerializerNotRegistered(Platform.kt:33) ~[?:?]
-	at kotlinx.serialization.SerializersKt__SerializersKt.serializer(Serializers.kt:134) ~[?:?]
-	at kotlinx.serialization.SerializersKt.serializer(Unknown Source) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.Main.loadConfig(Main.kt:240) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.Main.onProxyInitialization(Main.kt:123) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.Lmbda$9.execute(Unknown Source) ~[?:?]
-	at com.velocitypowered.proxy.event.UntargetedEventHandler$VoidHandler.lambda$buildHandler$0(UntargetedEventHandler.java:56) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.event.VelocityEventManager.fire(VelocityEventManager.java:677) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.event.VelocityEventManager.lambda$fire$5(VelocityEventManager.java:542) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-[16:11:55] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.RedisManager]: Redis connection pool initialized for localhost:6379
-[16:11:55] [floodgate - Task Executor #0/INFO] [org.mongodb.driver.client]: MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|kotlin", "version": "5.5.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.16.4-zen1-1-zen"}, "platform": "Java/Arch Linux/17.0.16+8|kotlin/2.1.20"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@54cff798, com.mongodb.Jep395RecordCodecProvider@65830f55, com.mongodb.KotlinCodecProvider@add737e]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
-[16:11:55] [cluster-ClusterId{value='68babe734a64840472365b7b', description='null'}-localhost:27017/INFO] [org.mongodb.driver.cluster]: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9801584, minRoundTripTimeNanos=0}
-[16:11:55] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.MongoDBManager]: MongoDB Manager initialized with connection to mongodb://localhost:27017
-[16:11:55] [floodgate - Task Executor #0/INFO] [h01]: FloodgateApi available - Bedrock support enabled
-[16:11:55] [floodgate - Task Executor #0/INFO] [h01]: Initializing economy
-[16:11:55] [floodgate - Task Executor #0/INFO] [h01]: Registering commands
-[16:11:55] [floodgate - Task Executor #0/INFO] [h01]: Commands registered
-[16:11:55] [Netty epoll Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25565
-[16:11:55] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (1.62s)!
-[16:11:55] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: ******************************************
-[16:11:55] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: 
-[16:11:55] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: Loading Geyser version 2.8.3-b921 (git-master-175794e)
-[16:11:55] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: 
-[16:11:55] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: ******************************************
-[16:11:57] [GeyserServer-3-1/INFO] [geyser]: Started Geyser on UDP port 19132
-[16:11:57] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: Done (1.775s)! Run /geyser help for help!
-[16:12:07] [Netty epoll Worker #1/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] Harihar@3738 (/127.0.0.1:53126) has connected
-[16:12:07] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.AuthManager]: Login attempt: Harihar@3738 (Java) from 127.0.0.1
-[16:12:07] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.AuthManager]: Bedrock player Harihar@3738 logged in successfully
-[16:12:07] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.events.AuthenticationEvents]: Login result for Harihar@3738: SUCCESS
-[16:12:07] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.events.AuthenticationEvents]: Harihar@3738 logged in successfully
-[16:12:07] [Netty epoll Worker #1/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] Harihar@3738 -> lobby has connected
-[16:12:12] [Netty epoll Worker #1/ERROR] [com.velocitypowered.proxy.command.SuggestionsProvider]: Arguments node cannot provide suggestions
-java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 0
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:91) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:16) ~[?:?]
-	at com.velocitypowered.api.command.InvocableCommand.suggestAsync(InvocableCommand.java:52) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.registrar.InvocableCommandRegistrar.lambda$createLiteral$5(InvocableCommandRegistrar.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.brigadier.VelocityArgumentCommandNode.listSuggestions(VelocityArgumentCommandNode.java:88) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.getArgumentsNodeSuggestions(SuggestionsProvider.java:261) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideArgumentsSuggestions(SuggestionsProvider.java:230) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:111) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:84) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.VelocityCommandManager.offerBrigadierSuggestions(VelocityCommandManager.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handleCommandTabComplete(ClientPlaySessionHandler.java:691) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handle(ClientPlaySessionHandler.java:290) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.packet.TabCompleteRequestPacket.handle(TabCompleteRequestPacket.java:140) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.MinecraftConnection.channelRead(MinecraftConnection.java:155) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.tryDecode(MinecraftDecoder.java:91) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.channelRead(MinecraftDecoder.java:60) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:293) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:793) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:482) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:307) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:489) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:444) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:207) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:178) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1073) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: net.kyori.adventure.text.LegacyFormattingDetected: Legacy formatting codes have been detected in a component - this is unsupported behaviour. Please refer to the Adventure documentation (https://docs.advntr.dev) for more information. Component: TextComponentImpl{content="§8§m--- Pay Command Help §8§m---", style=StyleImpl{obfuscated=not_set, bold=not_set, strikethrough=not_set, underlined=not_set, italic=not_set, color=NamedTextColor{name="dark_gray", value="#555555"}, shadowColor=null, clickEvent=null, hoverEvent=null, insertion=null, font=null}, children=[]}
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.warnWhenLegacyFormattingDetected(TextComponentImpl.java:84)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.<init>(TextComponentImpl.java:74)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.create(TextComponentImpl.java:55)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.Component.text(Component.java:821)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.Component.text(Component.java:834)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.sendUsage(EconomyCommand.kt:82)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.access$sendUsage(EconomyCommand.kt:16)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand$handleCommand$1.invokeSuspend(EconomyCommand.kt:47)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: net.kyori.adventure.text.LegacyFormattingDetected: Legacy formatting codes have been detected in a component - this is unsupported behaviour. Please refer to the Adventure documentation (https://docs.advntr.dev) for more information. Component: TextComponentImpl{content="§8§m--- Pay Command Help §8§m---", style=StyleImpl{obfuscated=not_set, bold=not_set, strikethrough=not_set, underlined=not_set, italic=not_set, color=NamedTextColor{name="dark_gray", value="#555555"}, shadowColor=null, clickEvent=null, hoverEvent=null, insertion=null, font=null}, children=[]}
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.warnWhenLegacyFormattingDetected(TextComponentImpl.java:84)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.<init>(TextComponentImpl.java:74)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.create(TextComponentImpl.java:55)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl$BuilderImpl.build(TextComponentImpl.java:168)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl$BuilderImpl.build(TextComponentImpl.java:136)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.TranslatableComponentRenderer.optionallyRenderChildrenAppendAndBuild(TranslatableComponentRenderer.java:275)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.TranslatableComponentRenderer.mergeStyleAndOptionallyDeepRender(TranslatableComponentRenderer.java:268)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.TranslatableComponentRenderer.renderText(TranslatableComponentRenderer.java:187)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.AbstractComponentRenderer.render(AbstractComponentRenderer.java:52)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.translation.GlobalTranslator.render(GlobalTranslator.java:87)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.velocitypowered.proxy.connection.client.ConnectedPlayer.translateMessage(ConnectedPlayer.java:415)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.velocitypowered.proxy.connection.client.ConnectedPlayer.sendMessage(ConnectedPlayer.java:432)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.audience.Audience.sendMessage(Audience.java:259)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.audience.Audience.sendMessage(Audience.java:223)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.sendUsage(EconomyCommand.kt:82)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.access$sendUsage(EconomyCommand.kt:16)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand$handleCommand$1.invokeSuspend(EconomyCommand.kt:47)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-[16:12:13] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-[16:12:18] [Netty epoll Worker #1/ERROR] [com.velocitypowered.proxy.command.SuggestionsProvider]: Arguments node cannot provide suggestions
-java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 0
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:91) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:16) ~[?:?]
-	at com.velocitypowered.api.command.InvocableCommand.suggestAsync(InvocableCommand.java:52) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.registrar.InvocableCommandRegistrar.lambda$createLiteral$5(InvocableCommandRegistrar.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.brigadier.VelocityArgumentCommandNode.listSuggestions(VelocityArgumentCommandNode.java:88) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.getArgumentsNodeSuggestions(SuggestionsProvider.java:261) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideArgumentsSuggestions(SuggestionsProvider.java:230) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:111) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:84) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.VelocityCommandManager.offerBrigadierSuggestions(VelocityCommandManager.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handleCommandTabComplete(ClientPlaySessionHandler.java:691) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handle(ClientPlaySessionHandler.java:290) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.packet.TabCompleteRequestPacket.handle(TabCompleteRequestPacket.java:140) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.MinecraftConnection.channelRead(MinecraftConnection.java:155) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.tryDecode(MinecraftDecoder.java:91) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.channelRead(MinecraftDecoder.java:60) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:293) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:793) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:482) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:307) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:489) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:444) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:207) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:178) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1073) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-[16:12:18] [Netty epoll Worker #1/ERROR] [com.velocitypowered.proxy.command.SuggestionsProvider]: Arguments node cannot provide suggestions
-java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:91) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:16) ~[?:?]
-	at com.velocitypowered.api.command.InvocableCommand.suggestAsync(InvocableCommand.java:52) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.registrar.InvocableCommandRegistrar.lambda$createLiteral$5(InvocableCommandRegistrar.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.brigadier.VelocityArgumentCommandNode.listSuggestions(VelocityArgumentCommandNode.java:88) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.getArgumentsNodeSuggestions(SuggestionsProvider.java:261) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideArgumentsSuggestions(SuggestionsProvider.java:230) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:111) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:84) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.VelocityCommandManager.offerBrigadierSuggestions(VelocityCommandManager.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handleCommandTabComplete(ClientPlaySessionHandler.java:691) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handle(ClientPlaySessionHandler.java:290) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.packet.TabCompleteRequestPacket.handle(TabCompleteRequestPacket.java:140) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.MinecraftConnection.channelRead(MinecraftConnection.java:155) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.tryDecode(MinecraftDecoder.java:91) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.channelRead(MinecraftDecoder.java:60) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:293) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:793) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:482) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:307) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:489) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:444) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:207) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:178) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1073) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-[16:12:18] [Netty epoll Worker #1/ERROR] [com.velocitypowered.proxy.command.SuggestionsProvider]: Arguments node cannot provide suggestions
-java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:91) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:16) ~[?:?]
-	at com.velocitypowered.api.command.InvocableCommand.suggestAsync(InvocableCommand.java:52) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.registrar.InvocableCommandRegistrar.lambda$createLiteral$5(InvocableCommandRegistrar.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.brigadier.VelocityArgumentCommandNode.listSuggestions(VelocityArgumentCommandNode.java:88) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.getArgumentsNodeSuggestions(SuggestionsProvider.java:261) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideArgumentsSuggestions(SuggestionsProvider.java:230) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:111) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:84) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.VelocityCommandManager.offerBrigadierSuggestions(VelocityCommandManager.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handleCommandTabComplete(ClientPlaySessionHandler.java:691) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handle(ClientPlaySessionHandler.java:290) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.packet.TabCompleteRequestPacket.handle(TabCompleteRequestPacket.java:140) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.MinecraftConnection.channelRead(MinecraftConnection.java:155) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.tryDecode(MinecraftDecoder.java:91) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.channelRead(MinecraftDecoder.java:60) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:293) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:793) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:482) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:307) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:489) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:444) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:207) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:178) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1073) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-[16:12:18] [Netty epoll Worker #1/ERROR] [com.velocitypowered.proxy.command.SuggestionsProvider]: Arguments node cannot provide suggestions
-java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:91) ~[?:?]
-	at com.hariharnautiyal.velocity.h01.commands.PayCommand.suggest(EconomyCommand.kt:16) ~[?:?]
-	at com.velocitypowered.api.command.InvocableCommand.suggestAsync(InvocableCommand.java:52) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.registrar.InvocableCommandRegistrar.lambda$createLiteral$5(InvocableCommandRegistrar.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.brigadier.VelocityArgumentCommandNode.listSuggestions(VelocityArgumentCommandNode.java:88) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.getArgumentsNodeSuggestions(SuggestionsProvider.java:261) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideArgumentsSuggestions(SuggestionsProvider.java:230) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:111) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.SuggestionsProvider.provideSuggestions(SuggestionsProvider.java:84) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.command.VelocityCommandManager.offerBrigadierSuggestions(VelocityCommandManager.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handleCommandTabComplete(ClientPlaySessionHandler.java:691) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.client.ClientPlaySessionHandler.handle(ClientPlaySessionHandler.java:290) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.packet.TabCompleteRequestPacket.handle(TabCompleteRequestPacket.java:140) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.connection.MinecraftConnection.channelRead(MinecraftConnection.java:155) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.tryDecode(MinecraftDecoder.java:91) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at com.velocitypowered.proxy.protocol.netty.MinecraftDecoder.channelRead(MinecraftDecoder.java:60) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:107) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:293) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:793) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.handle(AbstractEpollChannel.java:482) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler$DefaultEpollIoRegistration.handle(EpollIoHandler.java:307) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.processReady(EpollIoHandler.java:489) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.epoll.EpollIoHandler.run(EpollIoHandler.java:444) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:207) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:178) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1073) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[533.jar:3.4.0-SNAPSHOT (git-1532fb36-b533)]
-	at java.base/java.lang.Thread.run(Thread.java:840) [?:?]
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: net.kyori.adventure.text.LegacyFormattingDetected: Legacy formatting codes have been detected in a component - this is unsupported behaviour. Please refer to the Adventure documentation (https://docs.advntr.dev) for more information. Component: TextComponentImpl{content="§8§m--- Pay Command Help §8§m---", style=StyleImpl{obfuscated=not_set, bold=not_set, strikethrough=not_set, underlined=not_set, italic=not_set, color=NamedTextColor{name="dark_gray", value="#555555"}, shadowColor=null, clickEvent=null, hoverEvent=null, insertion=null, font=null}, children=[]}
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.warnWhenLegacyFormattingDetected(TextComponentImpl.java:84)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.<init>(TextComponentImpl.java:74)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.create(TextComponentImpl.java:55)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.Component.text(Component.java:821)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.Component.text(Component.java:834)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.sendUsage(EconomyCommand.kt:82)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.access$sendUsage(EconomyCommand.kt:16)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand$handleCommand$1.invokeSuspend(EconomyCommand.kt:47)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: net.kyori.adventure.text.LegacyFormattingDetected: Legacy formatting codes have been detected in a component - this is unsupported behaviour. Please refer to the Adventure documentation (https://docs.advntr.dev) for more information. Component: TextComponentImpl{content="§8§m--- Pay Command Help §8§m---", style=StyleImpl{obfuscated=not_set, bold=not_set, strikethrough=not_set, underlined=not_set, italic=not_set, color=NamedTextColor{name="dark_gray", value="#555555"}, shadowColor=null, clickEvent=null, hoverEvent=null, insertion=null, font=null}, children=[]}
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.warnWhenLegacyFormattingDetected(TextComponentImpl.java:84)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.<init>(TextComponentImpl.java:74)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl.create(TextComponentImpl.java:55)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl$BuilderImpl.build(TextComponentImpl.java:168)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.TextComponentImpl$BuilderImpl.build(TextComponentImpl.java:136)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.TranslatableComponentRenderer.optionallyRenderChildrenAppendAndBuild(TranslatableComponentRenderer.java:275)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.TranslatableComponentRenderer.mergeStyleAndOptionallyDeepRender(TranslatableComponentRenderer.java:268)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.TranslatableComponentRenderer.renderText(TranslatableComponentRenderer.java:187)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.text.renderer.AbstractComponentRenderer.render(AbstractComponentRenderer.java:52)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.translation.GlobalTranslator.render(GlobalTranslator.java:87)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.velocitypowered.proxy.connection.client.ConnectedPlayer.translateMessage(ConnectedPlayer.java:415)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.velocitypowered.proxy.connection.client.ConnectedPlayer.sendMessage(ConnectedPlayer.java:432)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.audience.Audience.sendMessage(Audience.java:259)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at net.kyori.adventure.audience.Audience.sendMessage(Audience.java:223)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.sendUsage(EconomyCommand.kt:82)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand.access$sendUsage(EconomyCommand.kt:16)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at com.hariharnautiyal.velocity.h01.commands.PayCommand$handleCommand$1.invokeSuspend(EconomyCommand.kt:47)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-[16:12:19] [DefaultDispatcher-worker-1/ERROR] [com.velocitypowered.proxy.console.VelocityConsole]: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-[16:13:28] [Netty epoll Worker #1/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [connected player] Harihar@3738 (/127.0.0.1:53126) has disconnected
-[16:13:28] [Netty epoll Worker #1/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] Harihar@3738 -> lobby has disconnected
-[16:13:28] [floodgate - Task Executor #1/INFO] [com.hariharnautiyal.velocity.h01.managers.AuthManager]: Player Harihar@3738 logged out
-[16:14:04] [Shutdown thread/INFO] [com.velocitypowered.proxy.VelocityServer]: Shutting down the proxy...
-[16:14:04] [Shutdown thread/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Closing endpoint /0.0.0.0:25565
-[16:14:04] [floodgate - Task Executor #1/INFO] [geyser]: Shutting down Geyser.
-[16:14:04] [floodgate - Task Executor #1/INFO] [geyser]: Geyser shutdown successfully.
-[16:14:04] [floodgate - Task Executor #1/INFO] [h01]: Shutting down economy
-[16:14:04] [floodgate - Task Executor #1/INFO] [com.hariharnautiyal.velocity.h01.managers.RedisManager]: Redis connection pool closed
-[16:14:04] [floodgate - Task Executor #1/INFO] [com.hariharnautiyal.velocity.h01.managers.MongoDBManager]: MongoDB connection closed
+[16:31:36] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Booting up Velocity 3.4.0-SNAPSHOT (git-1532fb36-b533)...
+[16:31:36] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading localizations...
+[16:31:36] [main/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Connections will use epoll channels, libdeflate (Linux x86_64) compression, OpenSSL 3.x.x (Linux x86_64) ciphers
+[16:31:37] [main/WARN] [com.velocitypowered.proxy.config.VelocityConfiguration]: The proxy is running in offline mode! This is a security risk and you will NOT receive any support!
+[16:31:37] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loading plugins...
+[16:31:37] [main/INFO] [floodgate]: Took 116ms to boot Floodgate
+[16:31:37] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin floodgate 2.2.4-SNAPSHOT (b118-40d320a) by GeyserMC
+[16:31:37] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin geyser 2.8.3-b921 (git-master-175794e) by GeyserMC
+[16:31:37] [main/INFO] [h01]: Hello world
+[16:31:37] [main/INFO] [com.velocitypowered.proxy.plugin.VelocityPluginManager]: Loaded plugin h01 1.0-SNAPSHOT by Harihar Nautiyal
+[16:31:37] [main/INFO] [com.velocitypowered.proxy.VelocityServer]: Loaded 4 plugins
+[16:31:37] [floodgate - Task Executor #0/WARN] [com.velocitypowered.proxy.network.ConnectionManager]: The server channel initializer has been replaced by java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[16:31:37] [floodgate - Task Executor #0/WARN] [com.velocitypowered.proxy.network.ConnectionManager]: The backend channel initializer has been replaced by java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[16:31:37] [floodgate - Task Executor #0/INFO] [geyser]: Loading extensions...
+[16:31:37] [floodgate - Task Executor #0/INFO] [geyser]: Loaded 0 extension(s)
+[16:31:37] [floodgate - Task Executor #0/INFO] [h01]: Loading configuration...
+[16:31:37] [floodgate - Task Executor #0/INFO] [h01]: Configuration loaded successfully: PluginConfig(webHost=localhost, webPort=1798, backendApi=test-api-key, websiteUrl=http://localhost:4000, isDevelopment=true, mongo=MongoDBConfiguration(host=localhost, port=27017, database=h01, username=null, password=null), redis=RedisConfiguration(host=localhost, port=6379, password=null))
+[16:31:38] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.RedisManager]: Redis connection pool initialized for localhost:6379
+[16:31:38] [floodgate - Task Executor #0/INFO] [org.mongodb.driver.client]: MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|kotlin", "version": "5.5.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.16.4-zen1-1-zen"}, "platform": "Java/Arch Linux/17.0.16+8|kotlin/2.1.20"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@af6ec92, com.mongodb.Jep395RecordCodecProvider@25c7ab17, com.mongodb.KotlinCodecProvider@756f2fe5]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+[16:31:38] [cluster-ClusterId{value='68bac312c31c03dace2acf9b', description='null'}-localhost:27017/INFO] [org.mongodb.driver.cluster]: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10785538, minRoundTripTimeNanos=0}
+[16:31:38] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.MongoDBManager]: MongoDB Manager initialized with connection to mongodb://localhost:27017
+[16:31:38] [floodgate - Task Executor #0/INFO] [h01]: FloodgateApi available - Bedrock support enabled
+[16:31:38] [floodgate - Task Executor #0/INFO] [h01]: Initializing economy
+[16:31:38] [floodgate - Task Executor #0/INFO] [h01]: Registering commands
+[16:31:38] [floodgate - Task Executor #0/INFO] [h01]: Commands registered
+[16:31:38] [Netty epoll Boss #0/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Listening on /[0:0:0:0:0:0:0:0]:25565
+[16:31:38] [main/INFO] [com.velocitypowered.proxy.Velocity]: Done (1.49s)!
+[16:31:38] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: ******************************************
+[16:31:38] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: 
+[16:31:38] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: Loading Geyser version 2.8.3-b921 (git-master-175794e)
+[16:31:38] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: 
+[16:31:38] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: ******************************************
+[16:31:40] [GeyserServer-3-1/INFO] [geyser]: Started Geyser on UDP port 19132
+[16:31:40] [Geyser-Velocity - Task Executor #0/INFO] [geyser]: Done (1.794s)! Run /geyser help for help!
+[16:31:42] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.AuthSessionHandler]: [connected player] Harihar@3738 (/127.0.0.1:43354) has connected
+[16:31:42] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.AuthManager]: Login attempt: Harihar@3738 (Java) from 127.0.0.1
+[16:31:43] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.AuthManager]: Bedrock player Harihar@3738 logged in successfully
+[16:31:43] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.events.AuthenticationEvents]: Login result for Harihar@3738: SUCCESS
+[16:31:43] [h01 - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.events.AuthenticationEvents]: Harihar@3738 logged in successfully
+[16:31:43] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] Harihar@3738 -> lobby has connected
+[16:32:07] [Shutdown thread/INFO] [com.velocitypowered.proxy.VelocityServer]: Shutting down the proxy...
+[16:32:07] [Shutdown thread/INFO] [com.velocitypowered.proxy.network.ConnectionManager]: Closing endpoint /0.0.0.0:25565
+[16:32:07] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.client.ConnectedPlayer]: [connected player] Harihar@3738 (/127.0.0.1:43354) has disconnected: Proxy shutting down.
+[16:32:07] [Netty epoll Worker #0/INFO] [com.velocitypowered.proxy.connection.MinecraftConnection]: [server connection] Harihar@3738 -> lobby has disconnected
+[16:32:07] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.AuthManager]: Player Harihar@3738 logged out
+[16:32:07] [floodgate - Task Executor #0/INFO] [geyser]: Shutting down Geyser.
+[16:32:07] [floodgate - Task Executor #0/INFO] [geyser]: Geyser shutdown successfully.
+[16:32:07] [floodgate - Task Executor #0/INFO] [h01]: Shutting down economy
+[16:32:07] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.RedisManager]: Redis connection pool closed
+[16:32:07] [floodgate - Task Executor #0/INFO] [com.hariharnautiyal.velocity.h01.managers.MongoDBManager]: MongoDB connection closed

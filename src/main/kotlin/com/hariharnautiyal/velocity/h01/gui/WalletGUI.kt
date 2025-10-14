@@ -10,6 +10,8 @@ import com.velocitypowered.api.proxy.ProxyServer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.format.NamedTextColor
 
 class WalletGUI(
     private val economyManager: EconomyManager,
@@ -82,14 +84,8 @@ class WalletGUI(
                 val amountString = response.next() as? String
                 val amount = amountString?.toLongOrNull()
 
-                if (amount == null || amount <= 0) {
-                    val errorForm = SimpleForm.builder()
-                        .title("Invalid Amount")
-                        .content("Please enter a valid positive number.")
-                        .button("Back")
-                        .validResultHandler { payAmountForm(sender, recipient) }
-                        .build()
-                    floodgateApi.sendForm(sender.uniqueId, errorForm)
+                if (amount == null) {
+                    payError(sender, "Please enter a valid number.")
                     return@validResultHandler
                 }
 
@@ -104,16 +100,27 @@ class WalletGUI(
                                 .validResultHandler { mainMenu(sender) }
                                 .build()
                             floodgateApi.sendForm(sender.uniqueId, successForm)
-                            receivedCoins(recipient, sender, amount)
+
+                            val targetOnline = server.getPlayer(recipient.uniqueId).orElse(null)
+                            if (targetOnline != null) {
+                                if (floodgateApi.isFloodgatePlayer(recipient.uniqueId)) {
+                                    transferReceivedGUI(targetOnline, sender, amount)
+                                } else {
+                                    targetOnline.sendMessage(Component.text("You have received $amount from ${sender.username}", NamedTextColor.GREEN))
+                                }
+                            }
                         }
                         TransferBalanceResponse.NOT_ENOUGH_FUNDS -> {
-                            val errorForm = SimpleForm.builder()
-                                .title("Insufficient Funds")
-                                .content("You do not have enough coins to make this payment.")
-                                .button("Back")
-                                .validResultHandler { mainMenu(sender) }
-                                .build()
-                            floodgateApi.sendForm(sender.uniqueId, errorForm)
+                            payError(sender, "You do not have enough funds to make this transaction.")
+                        }
+                        TransferBalanceResponse.INVALID_AMOUNT -> {
+                            payError(sender, "You cannot send 0 or a negative amount.")
+                        }
+                        TransferBalanceResponse.CANNOT_PAY_SELF -> {
+                            payError(sender, "You cannot send money to yourself.")
+                        }
+                        TransferBalanceResponse.PLAYER_NOT_FOUND -> {
+                            payError(sender, "Player not found.")
                         }
                         else -> error(sender)
                     }
@@ -155,13 +162,22 @@ class WalletGUI(
         floodgateApi.sendForm(player.uniqueId, form)
     }
 
-    fun receivedCoins(player: Player, tPlayer: Player, amount: Long) {
+    fun payError(player: Player, message: String) {
         val form = SimpleForm.builder()
-            .title("Received Hash Coins")
-            .content("${tPlayer.username} sent you $amount hash coins")
+            .title("Payment Failed")
+            .content(message)
+            .button("Back")
+            .validResultHandler { mainMenu(player) }
+            .build()
+        floodgateApi.sendForm(player.uniqueId, form)
+    }
+
+    fun transferReceivedGUI(recipient: Player, sender: Player, amount: Long) {
+        val form = SimpleForm.builder()
+            .title("Payment Received")
+            .content("${sender.username} sent you $amount hash coins")
             .button("OK")
             .build()
-
-        floodgateApi.sendForm(player.uniqueId, form)
+        floodgateApi.sendForm(recipient.uniqueId, form)
     }
 }

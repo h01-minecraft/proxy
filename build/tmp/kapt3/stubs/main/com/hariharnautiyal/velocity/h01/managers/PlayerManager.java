@@ -1,6 +1,6 @@
 package com.hariharnautiyal.velocity.h01.managers;
 
-@kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\b\n\u0002\u0010\"\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\t\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\u0002\u0010\u0006J\u001e\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015J\u0018\u0010\u0016\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u0017\u001a\u00020\u000bH\u0086@\u00a2\u0006\u0002\u0010\u0018J \u0010\u0019\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u001a\u001a\u00020\u000b2\u0006\u0010\u001b\u001a\u00020\u000bH\u0086@\u00a2\u0006\u0002\u0010\u001cJ\u0006\u0010\u001d\u001a\u00020\u001eJ\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000b0\u001fJ\u0018\u0010 \u001a\u0004\u0018\u00010\u000f2\u0006\u0010!\u001a\u00020\u000bH\u0086@\u00a2\u0006\u0002\u0010\u0018J\u0018\u0010\"\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u0010\u001a\u00020\u0011H\u0086@\u00a2\u0006\u0002\u0010#J\u000e\u0010$\u001a\u00020%2\u0006\u0010!\u001a\u00020\u000bJ\u0016\u0010&\u001a\u00020'2\u0006\u0010!\u001a\u00020\u000b2\u0006\u0010(\u001a\u00020\u000bJ\u0016\u0010)\u001a\u00020'2\u0006\u0010*\u001a\u00020\u000fH\u0086@\u00a2\u0006\u0002\u0010+J \u0010,\u001a\u00020'2\u0006\u0010!\u001a\u00020\u000b2\b\u0010-\u001a\u0004\u0018\u00010\u000bH\u0086@\u00a2\u0006\u0002\u0010\u001cJ\u0016\u0010.\u001a\u00020\u000f2\u0006\u0010*\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u0013J\u0016\u0010/\u001a\u00020'2\u0006\u0010*\u001a\u00020\u000fH\u0086@\u00a2\u0006\u0002\u0010+R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001d\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\u000b0\n\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u00060"}, d2 = {"Lcom/hariharnautiyal/velocity/h01/managers/PlayerManager;", "", "mongoDBManager", "Lcom/hariharnautiyal/velocity/h01/managers/MongoDBManager;", "redisManager", "Lcom/hariharnautiyal/velocity/h01/managers/RedisManager;", "(Lcom/hariharnautiyal/velocity/h01/managers/MongoDBManager;Lcom/hariharnautiyal/velocity/h01/managers/RedisManager;)V", "logger", "Lorg/slf4j/Logger;", "onlinePlayers", "Ljava/util/concurrent/ConcurrentHashMap;", "", "getOnlinePlayers", "()Ljava/util/concurrent/ConcurrentHashMap;", "createNewProfile", "Lcom/hariharnautiyal/velocity/h01/models/PlayerProfile;", "uuid", "Ljava/util/UUID;", "request", "Lcom/hariharnautiyal/velocity/h01/models/WebAuthRequest;", "pendingData", "Lcom/hariharnautiyal/velocity/h01/models/PendingAuthData;", "findPlayerByEmail", "email", "(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "findPlayerByProvider", "provider", "providerId", "(Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getOnlinePlayerCount", "", "", "getPlayerByName", "username", "getPlayerProfile", "(Ljava/util/UUID;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "isPlayerOnline", "", "markPlayerOnline", "", "ip", "savePlayerProfile", "profile", "(Lcom/hariharnautiyal/velocity/h01/models/PlayerProfile;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "setPlayerTeam", "teamId", "updateExistingProfile", "updatePlayerProfile", "h01"})
+@kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\u0010\"\n\u0002\b\b\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\t\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\u0002\u0010\u0006J\u001e\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015J\u0006\u0010\u0016\u001a\u00020\u0017J\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000b0\u0018J\u0018\u0010\u0019\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u001a\u001a\u00020\u000bH\u0086@\u00a2\u0006\u0002\u0010\u001bJ\u0018\u0010\u001c\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u001d\u001a\u00020\u000bH\u0086@\u00a2\u0006\u0002\u0010\u001bJ\u0018\u0010\u001e\u001a\u0004\u0018\u00010\u000f2\u0006\u0010\u0010\u001a\u00020\u0011H\u0086@\u00a2\u0006\u0002\u0010\u001fJ\u000e\u0010 \u001a\u00020!2\u0006\u0010\u001d\u001a\u00020\u000bJ\u0016\u0010\"\u001a\u00020#2\u0006\u0010\u001d\u001a\u00020\u000b2\u0006\u0010$\u001a\u00020\u000bJ\u0016\u0010%\u001a\u00020#2\u0006\u0010&\u001a\u00020\u000fH\u0086@\u00a2\u0006\u0002\u0010\'J \u0010(\u001a\u00020#2\u0006\u0010\u001d\u001a\u00020\u000b2\b\u0010)\u001a\u0004\u0018\u00010\u000bH\u0086@\u00a2\u0006\u0002\u0010*J\u0016\u0010+\u001a\u00020#2\u0006\u0010&\u001a\u00020\u000fH\u0086@\u00a2\u0006\u0002\u0010\'R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001d\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\u000b0\n\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006,"}, d2 = {"Lcom/hariharnautiyal/velocity/h01/managers/PlayerManager;", "", "mongoDBManager", "Lcom/hariharnautiyal/velocity/h01/managers/MongoDBManager;", "redisManager", "Lcom/hariharnautiyal/velocity/h01/managers/RedisManager;", "(Lcom/hariharnautiyal/velocity/h01/managers/MongoDBManager;Lcom/hariharnautiyal/velocity/h01/managers/RedisManager;)V", "logger", "Lorg/slf4j/Logger;", "onlinePlayers", "Ljava/util/concurrent/ConcurrentHashMap;", "", "getOnlinePlayers", "()Ljava/util/concurrent/ConcurrentHashMap;", "createNewProfile", "Lcom/hariharnautiyal/velocity/h01/models/PlayerProfile;", "uuid", "Ljava/util/UUID;", "request", "Lcom/hariharnautiyal/velocity/h01/models/WebAuthRequest;", "pendingData", "Lcom/hariharnautiyal/velocity/h01/models/PendingAuthData;", "getOnlinePlayerCount", "", "", "getPlayerByDiscordId", "discordId", "(Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getPlayerByName", "username", "getPlayerProfile", "(Ljava/util/UUID;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "isPlayerOnline", "", "markPlayerOnline", "", "ip", "savePlayerProfile", "profile", "(Lcom/hariharnautiyal/velocity/h01/models/PlayerProfile;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "setPlayerTeam", "teamId", "(Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "updatePlayerProfile", "h01"})
 public final class PlayerManager {
     @org.jetbrains.annotations.NotNull()
     private final com.hariharnautiyal.velocity.h01.managers.MongoDBManager mongoDBManager = null;
@@ -76,17 +76,6 @@ public final class PlayerManager {
     }
     
     /**
-     * Fetch the profile from the provider
-     */
-    @org.jetbrains.annotations.Nullable()
-    public final java.lang.Object findPlayerByProvider(@org.jetbrains.annotations.NotNull()
-    java.lang.String provider, @org.jetbrains.annotations.NotNull()
-    java.lang.String providerId, @org.jetbrains.annotations.NotNull()
-    kotlin.coroutines.Continuation<? super com.hariharnautiyal.velocity.h01.models.PlayerProfile> $completion) {
-        return null;
-    }
-    
-    /**
      * Creates a profile instance
      */
     @org.jetbrains.annotations.NotNull()
@@ -94,23 +83,6 @@ public final class PlayerManager {
     java.util.UUID uuid, @org.jetbrains.annotations.NotNull()
     com.hariharnautiyal.velocity.h01.models.WebAuthRequest request, @org.jetbrains.annotations.NotNull()
     com.hariharnautiyal.velocity.h01.models.PendingAuthData pendingData) {
-        return null;
-    }
-    
-    /**
-     * Update the existing profile instance
-     */
-    @org.jetbrains.annotations.NotNull()
-    public final com.hariharnautiyal.velocity.h01.models.PlayerProfile updateExistingProfile(@org.jetbrains.annotations.NotNull()
-    com.hariharnautiyal.velocity.h01.models.PlayerProfile profile, @org.jetbrains.annotations.NotNull()
-    com.hariharnautiyal.velocity.h01.models.WebAuthRequest request) {
-        return null;
-    }
-    
-    @org.jetbrains.annotations.Nullable()
-    public final java.lang.Object findPlayerByEmail(@org.jetbrains.annotations.NotNull()
-    java.lang.String email, @org.jetbrains.annotations.NotNull()
-    kotlin.coroutines.Continuation<? super com.hariharnautiyal.velocity.h01.models.PlayerProfile> $completion) {
         return null;
     }
     
@@ -131,6 +103,13 @@ public final class PlayerManager {
     java.lang.String username, @org.jetbrains.annotations.Nullable()
     java.lang.String teamId, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super kotlin.Unit> $completion) {
+        return null;
+    }
+    
+    @org.jetbrains.annotations.Nullable()
+    public final java.lang.Object getPlayerByDiscordId(@org.jetbrains.annotations.NotNull()
+    java.lang.String discordId, @org.jetbrains.annotations.NotNull()
+    kotlin.coroutines.Continuation<? super com.hariharnautiyal.velocity.h01.models.PlayerProfile> $completion) {
         return null;
     }
 }
