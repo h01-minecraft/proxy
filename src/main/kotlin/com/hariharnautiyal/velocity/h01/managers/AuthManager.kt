@@ -30,12 +30,14 @@ class AuthManager(
             }
 
             if (isBedrock) {
-                handleBedrockLogin(uuid, username, ip)
-                return LoginResult.SUCCESS
+                playerManager.markPlayerOnline(username, ip)
+                logger.info("Bedrock player $username logged in successfully")
             } else {
-                handleJavaLogin(uuid, username, ip)
-                return LoginResult.SUCCESS
+                playerManager.markPlayerOnline(username, ip)
+                logger.info("Java player $username logged in successfully")
             }
+
+            return LoginResult.SUCCESS
 
         } catch (e: Exception) {
             logger.error("Error handling login for ${username}", e)
@@ -43,71 +45,7 @@ class AuthManager(
         }
     }
 
-    /**
-     * Handle authentication of the player with a bedrock edition
-     */
-    private suspend fun handleBedrockLogin(
-        uuid: UUID,
-        username: String,
-        ip: String
-    ) {
-        var profile = playerManager.getPlayerProfile(uuid)
 
-        if (profile == null) {
-            profile = PlayerProfile(
-                _id = uuid.toString(),
-                playerName = username,
-                edition = Edition.BEDROCK,
-                coins = 0, // Starting coins
-                registeredIP = ip,
-                registrationTime = System.currentTimeMillis()
-            )
-            playerManager.savePlayerProfile(profile)
-            logger.info("Created new Bedrock profile for $username")
-        } else {
-            val updatedProfile = profile.copy(
-                playerName = username,
-                lastUpdated = System.currentTimeMillis()
-            )
-            playerManager.updatePlayerProfile(updatedProfile)
-        }
-
-        playerManager.markPlayerOnline(username, ip)
-        logger.info("Bedrock player $username logged in successfully")
-    }
-
-    /**
-     * Handle authentication of the player with a java edition
-     */
-    private suspend fun handleJavaLogin(
-        uuid: UUID,
-        username: String,
-        ip: String
-    ) {
-        var profile = playerManager.getPlayerProfile(uuid)
-
-        if (profile == null) {
-            profile = PlayerProfile(
-                _id = uuid.toString(),
-                playerName = username,
-                edition = Edition.JAVA,
-                coins = 0,
-                registeredIP = ip,
-                registrationTime = System.currentTimeMillis()
-            )
-            playerManager.savePlayerProfile(profile)
-            logger.info("Created new Bedrock profile for $username")
-        } else {
-            val updatedProfile = profile.copy(
-                playerName = username,
-                lastUpdated = System.currentTimeMillis()
-            )
-            playerManager.updatePlayerProfile(updatedProfile)
-        }
-
-        playerManager.markPlayerOnline(username, ip)
-        logger.info("Bedrock player $username logged in successfully")
-    }
 
 
 

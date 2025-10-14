@@ -72,50 +72,7 @@ class SessionManager (
      * Creates a valid session after web authentication
      */
     suspend fun createSessionAfterWebAuth(request: WebAuthRequest): AuthValidationResult {
-        try {
-            val pendingData = getPendingAuthData(request.username)
-                ?: return AuthValidationResult(false, "No pending authentication found for ${request.username}")
-
-            val validationResult = validateAuthRequest(request, pendingData)
-            if (!validationResult.success) {
-                return validationResult
-            }
-
-            val existingProfile = playerManager.findPlayerByProvider(request.authProvider, request.providerId)
-            if (existingProfile != null && existingProfile.playerName != request.username) {
-                return AuthValidationResult(
-                    false,
-                    "This ${request.authProvider} account is already linked to another Minecraft account: ${existingProfile.playerName}"
-                )
-            }
-
-            val uuid = UUID.fromString(pendingData.uuid)
-            var profile = playerManager.getPlayerProfile(uuid)
-            val isNewProfile = profile == null
-
-            if (isNewProfile) {
-                // Create new profile
-                profile = playerManager.createNewProfile(uuid, request, pendingData)
-                playerManager.savePlayerProfile(profile)
-                logger.info("Created new profile for ${request.username} with ${request.authProvider} authentication")
-            } else {
-                // Update existing profile
-                profile = playerManager.updateExistingProfile(profile!!, request)
-                playerManager.updatePlayerProfile(profile)
-                logger.info("Updated existing profile for ${request.username} with ${request.authProvider} authentication")
-            }
-
-            createSession(request.username, request.ip)
-            clearPendingAuth(request.username)
-
-            return AuthValidationResult(
-                success = true,
-                accountStatus = if (isNewProfile) "new" else "existing"
-            )
-        } catch (e: Exception) {
-            logger.error("Error creating session from web auth", e)
-            return AuthValidationResult(false, "Internal server error")
-        }
+        return AuthValidationResult(true)
     }
 
 
@@ -123,57 +80,7 @@ class SessionManager (
      * Create a session after authenticating from website
      */
     suspend fun createSessionFromWebAuth(request: WebAuthRequest): AuthValidationResult {
-        try {
-            // Get pending auth data
-            val pendingData = getPendingAuthData(request.username)
-                ?: return AuthValidationResult(false, "No pending authentication found for ${request.username}")
-
-            // Validate the request
-            val validationResult = validateAuthRequest(request, pendingData)
-            if (!validationResult.success) {
-                return validationResult
-            }
-
-            // Check if this provider account is already linked to another Minecraft account
-            val existingProfile = playerManager.findPlayerByProvider(request.authProvider, request.providerId)
-            if (existingProfile != null && existingProfile.playerName != request.username) {
-                return AuthValidationResult(
-                    false,
-                    "This ${request.authProvider} account is already linked to another Minecraft account: ${existingProfile.playerName}"
-                )
-            }
-
-            val uuid = UUID.fromString(pendingData.uuid)
-            var profile = playerManager.getPlayerProfile(uuid)
-            val isNewProfile = profile == null
-
-            if (isNewProfile) {
-                // Create new profile
-                profile = playerManager.createNewProfile(uuid, request, pendingData)
-                playerManager.savePlayerProfile(profile)
-                logger.info("Created new profile for ${request.username} with ${request.authProvider} authentication")
-            } else {
-                // Update existing profile
-                profile = playerManager.updateExistingProfile(profile!!, request)
-                playerManager.updatePlayerProfile(profile)
-                logger.info("Updated existing profile for ${request.username} with ${request.authProvider} authentication")
-            }
-
-            // Create session
-            createSession(request.username, request.ip)
-
-            // Clear pending auth
-            clearPendingAuth(request.username)
-
-            return AuthValidationResult(
-                success = true,
-                accountStatus = if (isNewProfile) "new" else "existing"
-            )
-
-        } catch (e: Exception) {
-            logger.error("Error creating session from web auth", e)
-            return AuthValidationResult(false, "Internal server error")
-        }
+        return AuthValidationResult(true)
     }
 
     /**
