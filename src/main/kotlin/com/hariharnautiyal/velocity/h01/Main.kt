@@ -194,6 +194,8 @@ constructor(
 
             chatEvents = ChatEvents(redisManager)
 
+            redisManager.startSubscriber(server)
+
             server.eventManager.register(this, authenticationEvents)
             server.eventManager.register(this, chatEvents)
         } catch (e: Exception) {
