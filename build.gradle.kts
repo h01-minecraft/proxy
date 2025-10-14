@@ -12,16 +12,13 @@ plugins {
 }
 
 group = "com.hariharnautiyal.velocity"
+
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    maven("https://repo.papermc.io/repository/maven-public/") {
-        name = "papermc-repo"
-    }
-    maven("https://repo.opencollab.dev/main/") {
-        name = "opencollab-repo"
-    }
+    maven("https://repo.papermc.io/repository/maven-public/") { name = "papermc-repo" }
+    maven("https://repo.opencollab.dev/main/") { name = "opencollab-repo" }
 }
 
 val ktor_version: String = "3.1.3"
@@ -49,22 +46,23 @@ tasks {
 }
 
 val targetJavaVersion = 17
-kotlin {
-    jvmToolchain(targetJavaVersion)
-}
+
+kotlin { jvmToolchain(targetJavaVersion) }
 
 val templateSource = file("src/main/templates")
 val templateDest = layout.buildDirectory.dir("generated/sources/templates")
-val generateTemplates = tasks.register<Copy>("generateTemplates") {
-    val props = mapOf("version" to project.version)
-    inputs.properties(props)
+val generateTemplates =
+        tasks.register<Copy>("generateTemplates") {
+            val props = mapOf("version" to project.version)
+            inputs.properties(props)
 
-    from(templateSource)
-    into(templateDest)
-    expand(props)
-}
+            from(templateSource)
+            into(templateDest)
+            expand(props)
+        }
 
 sourceSets.main.configure { java.srcDir(generateTemplates.map { it.outputs }) }
 
 project.idea.project.settings.taskTriggers.afterSync(generateTemplates)
+
 project.eclipse.synchronizationTasks(generateTemplates)

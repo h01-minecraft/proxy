@@ -65,7 +65,7 @@ class LinkCommand(
             if (currentPlayerProfile == null) {
                 player.sendMessage(
                         Component.text(
-                                "Could not find your player profile. Please relog and try again.",
+                                "Could not find your player profile. Please reload and try again.",
                                 NamedTextColor.RED
                         )
                 )
