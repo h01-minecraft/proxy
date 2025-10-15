@@ -65,13 +65,11 @@ class RedisManager(
                             ) {
                                 if (pattern == "emit:*" && channel != null && message != null) {
                                     val username = channel.substringAfter("emit:")
-                                    server.getPlayer(username).ifPresent { player ->
-                                        val formattedMessage = "<${player.username}> $message"
-                                        val component =
-                                                LegacyComponentSerializer.legacyAmpersand()
-                                                        .deserialize(formattedMessage)
-                                        server.allPlayers.forEach { p -> p.sendMessage(component) }
-                                    }
+                                    val formattedMessage = "<${username}> $message"
+                                    val component =
+                                            LegacyComponentSerializer.legacyAmpersand()
+                                                    .deserialize(formattedMessage)
+                                    server.allPlayers.forEach { p -> p.sendMessage(component) }
                                 }
                             }
                         }
