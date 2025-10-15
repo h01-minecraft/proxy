@@ -48,7 +48,7 @@ class RedisManager(
         return try {
             jedisPool.resource.use { jedis -> action(jedis) }
         } catch (e: Exception) {
-            logger.error("Error executing Redis operation", e)
+            logger.error("Error executing Redis operation, errror: ", e)
             null
         }
     }
